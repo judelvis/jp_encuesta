@@ -27,6 +27,7 @@ while ($result = mysql_fetch_array($response)) {
 }
 $name = $_SESSION['name'];
 mysql_query("update users set score='$right_answer' where user_name='$name'");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,8 +41,14 @@ mysql_query("update users set score='$right_answer' where user_name='$name'");
     <!--[if lt IE 9]>
     <script src="../../assets/js/html5shiv.js"></script>
     <script src="../../assets/js/respond.min.js"></script>
-    <![endif]-->
 
+    <![endif]-->
+    <script language="javascript">
+        function redireccionarPagina() {
+            window.location = "<?php echo BASE_PATH; ?>";
+        }
+        setTimeout("redireccionarPagina()", 5000);
+    </script>
 </head>
 <body>
 <header>
@@ -76,17 +83,11 @@ mysql_query("update users set score='$right_answer' where user_name='$name'");
 
     </div>
 </div>
-<footer>
-    <p class="text-center" id="foot">
-        &copy; <a href="#" target="_blank"></a>2013
-    </p>
-</footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/jquery.validate.min.js"></script>
-
 </body>
 </html>
